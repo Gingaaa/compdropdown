@@ -17,10 +17,10 @@ export class AppComponent implements OnInit {
   companies: any[] | any = [];
   edit: boolean = false;
   edits: boolean = true;
-  editdata: any;
-  editid: any;
-  editcheck: boolean = false;
-  editch: any;
+  editData: any;
+  editId: any;
+  editCheck: boolean = false;
+  editCh: any;
 
   constructor(private http: HttpClient, private fb: FormBuilder) {}
 
@@ -30,17 +30,14 @@ export class AppComponent implements OnInit {
       editcomp: [''],
     });
 
-    this.http.get('http://localhost:3000/posts').subscribe((response) => {
-      this.data = response;
-      this.companies = response;
-    });
+    this.getData();
 
     this.myForm.get('company').valueChanges.subscribe((value: any) => {
       this.myForm.get('editcomp').setValue(value);
-      this.editdata = value;
+      this.editData = value;
     });
     this.myForm.get('editcomp').valueChanges.subscribe((value: any) => {
-      this.editch = value;
+      this.editCh = value;
     });
   }
 
@@ -55,30 +52,48 @@ export class AppComponent implements OnInit {
     }
   }
 
-  editd() {
+  ediTd() {
     this.edit = true;
     for (let i = 0; i < this.data.length; i++) {
-      if (this.data[i].name == this.editdata) {
-        this.editid = this.data[i].id;
+      if (this.data[i].name == this.editData) {
+        this.editId = this.data[i].id;
       }
     }
-    this.editcheck = true;
+    this.editCheck = true;
     this.edits = false;
   }
 
   save() {
-    if (this.editcheck) {
+    if (this.editCheck) {
       const data = {
-        name: this.editch,
-        check: this.editch.toLowerCase(),
+        name: this.editCh,
+        check: this.editCh.toLowerCase(),
         email: '',
       };
       const url = 'http://localhost:3000/posts';
 
       this.http.post(url, data).subscribe();
+    }else{
+      const data = {
+        name: this.editCh,
+        check: this.editCh.toLowerCase(),
+        email: '',
+      };
+      const url = 'http://localhost:3000/posts';
+
+      this.http.post(url, data).subscribe();
+
     }
     this.edits = true;
     this.edit = false;
+    
+  }
+
+  getData(){
+    this.http.get('http://localhost:3000/posts').subscribe((response) => {
+      this.data = response;
+      this.companies = response;
+    });
   }
 
 }

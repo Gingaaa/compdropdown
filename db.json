@@ -29,6 +29,18 @@
       "check": "microsoft",
       "email": "rtcamp@gmail.com",
       "id": 5
+    },
+    {
+      "name": "Azure",
+      "check": "azure",
+      "email": "",
+      "id": 6
+    },
+    {
+      "name": "Wizard",
+      "check": "wizard",
+      "email": "",
+      "id": 7
     }
   ],
   "comments": [],
