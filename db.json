@@ -1,0 +1,38 @@
+{
+  "posts": [
+    {
+      "name": "Rtcamp",
+      "check": "rtcamp",
+      "email": "rtcamp@gmail.com",
+      "id": 1
+    },
+    {
+      "name": "Faxoc",
+      "check": "faxoc",
+      "email": "rtcamp@gmail.com",
+      "id": 2
+    },
+    {
+      "name": "Google",
+      "check": "google",
+      "email": "rtcamp@gmail.com",
+      "id": 3
+    },
+    {
+      "name": "Amazon",
+      "check": "amazon",
+      "email": "rtcamp@gmail.com",
+      "id": 4
+    },
+    {
+      "name": "Microsoft",
+      "check": "microsoft",
+      "email": "rtcamp@gmail.com",
+      "id": 5
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

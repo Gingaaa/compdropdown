@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: -webkit-fill-available;
+  background-image: linear-gradient(to right, #323030 , #72ae6d);
+}
+.box {
+  width: 200px;
+  height: 40px;
+  border-radius: 11px;
+  padding-left: 17px;
+}
+.comp {
+  margin-right: 15px;
+}
+.edit {
+  width: 25px;
+  height: 25px;
+  margin-left: 13px;
+}
