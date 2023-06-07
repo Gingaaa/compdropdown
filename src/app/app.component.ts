@@ -68,24 +68,32 @@ export class AppComponent implements OnInit {
       const data = {
         name: this.editCh,
         check: this.editCh.toLowerCase(),
-        email: '',
+        email: this.editCh.toLowerCase()+'@gmail.com',
       };
-      const url = 'http://localhost:3000/posts';
-
-      this.http.post(url, data).subscribe();
+  this.http.put(`http://localhost:3000/posts/${this.editId}`, data).subscribe(
+    () => {
+      console.log('Data updated successfully!');
+    },
+    (error) => {
+      console.error('Error updating data:', error);
+    }
+  );
     }else{
       const data = {
         name: this.editCh,
         check: this.editCh.toLowerCase(),
-        email: '',
+        email: this.editCh.toLowerCase()+'@gmail.com',
       };
       const url = 'http://localhost:3000/posts';
 
       this.http.post(url, data).subscribe();
 
     }
+   
     this.edits = true;
     this.edit = false;
+    console.log(this.editId);
+    
     
   }
 
