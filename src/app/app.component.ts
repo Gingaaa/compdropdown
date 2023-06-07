@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,7 @@ export class AppComponent implements OnInit {
   editCheck: boolean = false;
   editCh: any;
 
-  constructor(private http: HttpClient, private fb: FormBuilder) {}
+  constructor(private http: HttpClient, private fb: FormBuilder,private location: Location) {}
 
   ngOnInit() {
     this.myForm = this.fb.group({
@@ -92,9 +93,7 @@ export class AppComponent implements OnInit {
    
     this.edits = true;
     this.edit = false;
-    console.log(this.editId);
-    
-    
+    this.refreshPage();
   }
 
   getData(){
@@ -102,6 +101,11 @@ export class AppComponent implements OnInit {
       this.data = response;
       this.companies = response;
     });
+  }
+
+  refreshPage() {
+    this.location.go(this.location.path());
+    window.location.reload();
   }
 
 }
